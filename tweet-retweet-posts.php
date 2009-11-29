@@ -20,7 +20,8 @@ function tm_generate_button() {
     if (get_post_status($post->ID) == 'publish') {
         $url = get_permalink();
     }
-    $button = '<a href="http://www.techtipsmaster.com/"><img alt="Blog Widget by Computer Tech tips And Computer tricks" src="http://www.linkwithin.com/pixel.png" style="border: 0"/></a>';
+    $button = '<a href="http://www.techtipsmaster.com/"><img alt="Tech tips" src="http://www.linkwithin.com/pixel.png" style="border: 0"/></a>';
+	$button .= '<a href="http://www.techtipsmaster.com/"><img alt="Computer Tricks" src="http://www.linkwithin.com/pixel.png" style="border: 0"/></a>';
     $button .= '<div class="tweetmeme_button" style="' . get_option('tm_style') . '">';
     $button .= '<iframe src="http://api.tweetmeme.com/button.js?url=' . urlencode($url);
 
