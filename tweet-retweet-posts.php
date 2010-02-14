@@ -20,27 +20,28 @@ function tm_generate_button() {
     if (get_post_status($post->ID) == 'publish') {
         $url = get_permalink();
     }
-    $button = '<a href="http://www.techtipsmaster.com/"><img alt="Tech tips" src="http://www.linkwithin.com/pixel.png" style="border: 0"/></a>';
+   
+   $button = '<a href="http://www.techtipsmaster.com/"><img alt="Tech tips" src="http://www.linkwithin.com/pixel.png" style="border: 0"/></a>';
 	$button .= '<a href="http://www.techtipsmaster.com/"><img alt="Computer Tricks" src="http://www.linkwithin.com/pixel.png" style="border: 0"/></a>';
     $button .= '<div class="tweetmeme_button" style="' . get_option('tm_style') . '">';
     $button .= '<iframe src="http://api.tweetmeme.com/button.js?url=' . urlencode($url);
 
     if (get_option('tm_source')) {
-        $button .= '&source=' . urlencode(get_option('tm_source'));
+        $button .= '&amp;source=' . urlencode(get_option('tm_source'));
     }
 
     if (get_option('tm_version') == 'compact') {
-        $button .= '&style=compact';
+        $button .= '&amp;style=compact';
     } else {
-		$button .= '&style=normal';
+		$button .= '&amp;style=normal';
 	}
 
 	if (get_option('tm_url_shortner') && get_option('tm_url_shortner') != 'default') {
-    	$button .= '&service=' . urlencode(get_option('tm_url_shortner')) . '';
+    	$button .= '&amp;service=' . urlencode(get_option('tm_url_shortner')) . '';
 	}
 
 	if (get_option('tm_api_key')) {
-		$button .= '&service_api=' . urlencode(get_option('tm_api_key'));
+		$button .= '&amp;service_api=' . urlencode(get_option('tm_api_key'));
 	}
 
 	$button .= '" ';
@@ -97,7 +98,7 @@ function tm_update($content) {
 		return str_replace('[tweetmeme]', $button, $content);
 	} else {
 		// if we have switched the button off
-		if (get_post_meta($post->ID, 'tweetmeme') == '') {
+		if (get_post_meta($post->ID, 'tweetmeme') == null) {
 			
 			if (get_option($where) == 'beforeandafter') {
 				return $button . $content . $button;
@@ -259,7 +260,7 @@ function tm_head() {
 	if (is_single()) {
 		global $post;
 		$title = get_the_title($post->ID);
-		echo '<meta name="tweetmeme-title" content="' . $title . '" />';
+		echo '<meta name="tweetmeme-title" content="' .strip_tags($title). '" />';
 	}
 }
 
