@@ -4,7 +4,7 @@ Donate link: http://www.techtipsmaster.com/tweet-retweet-wordpress-posts-plugin.
 Tags:  Retweet,traffic,  general,  rankings,  twitter,  webmaster,  wordpress hacks,  wp-plugins
 Requires at least: 2.0
 Tested up to: 2.8
-Stable tag: 1.0
+Stable tag: 2.0
  
 This plugin  adds a button to tweet and retweet your wordpress blog posts making it more popular and drive visitors to your site.
 
